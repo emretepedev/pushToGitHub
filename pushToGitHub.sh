@@ -10,8 +10,10 @@ oldValue=$( cat ${filePath} )
 re="^[0-9]+$"
 if ! [ $oldValue =~ $re ] || [ $oldValue > 2 ** 16 ]
 then
+    echo 'ife girdi'
   newValue=0;
 else
+    echo 'else girdi'
   newValue=$(( ${oldValue} + 1 ));
 fi
 
