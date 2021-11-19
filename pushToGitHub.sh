@@ -1,9 +1,8 @@
 # !/bin/sh
 
 firstPWD=$PWD
-path="$HOME/pushToGitHub"
-
-cd $path
+repoPath="$HOME/pushToGitHub/"
+cd $repoPath
 
 filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
@@ -11,7 +10,6 @@ newValue=$(( ${oldValue} + 1 ))
 
 sed -i "s/${oldValue}/${newValue}/g" ${filePath}
 
-git commit -a --allow-empty-message -m ''
-git push
+git commit --allow-empty-message -am '' && git push
 
 cd $firstPWD
