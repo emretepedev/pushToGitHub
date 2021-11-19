@@ -8,7 +8,7 @@ filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
 
 re="^[0-9]+$"
-if ! [ $(( oldValue )) =~ ${re} ] ; then
+if ! [ $(( oldValue )) =~ $( re ) ] ; then
     echo 'ife girdi'
   newValue=0;
 else
