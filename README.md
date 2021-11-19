@@ -16,7 +16,7 @@ alias gp2="git push && /path/to/the/file/pushToGitHub.sh"
   - You need to fork this project or create a new repository that includes files like these in GitHub.
 
 - Clone the Repository
-  - Clone forked or created repository.
+  - Clone the forked or created repository to local.
 
 - Execute Permission
   - You have to make executable to execute the sh file that one `pushToGitHub.sh`
