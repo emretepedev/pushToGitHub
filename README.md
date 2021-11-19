@@ -25,7 +25,7 @@ Clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME`
 You have to make executable to execute the sh file that one `pushToGitHub.sh`
 
 ```
-sudo chmod +x /path/to/the/file/pushToGitHub.sh
+sudo chmod +x /path/to/file/pushToGitHub.sh
 ```
 
 ### Check Out the File Path
@@ -37,5 +37,5 @@ Check out the file path from [pushToGitHub.sh:4](https://github.com/emretepedev/
 Set the alias (in .bashrc or .zshrc etc.) to the smooth experience like this:
 
 ```
-alias gp2="git push && /path/to/the/file/pushToGitHub.sh"
+alias gp2="git push && /path/to/file/pushToGitHub.sh"
 ```
