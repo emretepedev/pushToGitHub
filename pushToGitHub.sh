@@ -8,7 +8,7 @@ filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
 
 re="^[0-9]+$"
-if ! [[ $oldValue =~ $re ]] || [[ $oldValue > 2 ** 16 ]]
+if ! [ $oldValue =~ $re ] || [ $oldValue > 2 ** 16 ]
 then
   newValue=0;
 else
