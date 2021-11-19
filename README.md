@@ -18,7 +18,7 @@ Fork this repository.
 
 ### Clone the Repository
 
-Clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` commands before git clone command. Because of the default [path](README.md#check-out-the-file-path).
+Clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` commands before git clone command. Because of the default [path](README.md#check-out-the-file-path).)
 
 ### The Execute Permission
 
