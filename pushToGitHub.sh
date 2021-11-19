@@ -1,7 +1,7 @@
 # !/bin/sh
 
 firstPWD=$PWD
-path="$HOME/toGitHub"
+path="$HOME/pushToGitHub"
 
 cd $path
 
