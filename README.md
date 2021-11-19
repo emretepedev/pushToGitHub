@@ -5,7 +5,7 @@ Basically, when i pushed something to the GitLab (or like that), this script pus
 ---
 # Prerequisites
 
-### Connect GitHub via Ssh (optional but highly recommended)
+### Connect the GitHub via Ssh (optional but highly recommended)
 
 Connect to the GitHub via ssh to the smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
@@ -18,7 +18,7 @@ Fork this repository.
 
 ### Clone the Repository
 
-Clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` before git clone command. Because of the default [path](README.md#check-out-the-file-path).)
+Clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` commands before git clone command. Because of the default [path](README.md#check-out-the-file-path).
 
 ### The Execute Permission
 
