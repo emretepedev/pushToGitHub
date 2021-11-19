@@ -6,7 +6,13 @@ cd $repoPath
 
 filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
-newValue=$(( ${oldValue} + 1 ))
+
+re='^[0-9]+$'
+if ! [[ $oldValue =~ $re ]] || [[ $oldValue > 2 ** 16 ]]; then
+  newValue=0;
+else
+  newValue=$(( ${oldValue} + 1 ));
+fi
 
 sed -i "s/${oldValue}/${newValue}/g" ${filePath}
 
