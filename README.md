@@ -3,7 +3,7 @@
 - Connect GitHub via Ssh (optional)
   - Connect to the GitHub via ssh to smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
-- Set the alias (optional)
+- Set the Alias (optional)
   - Set the alias (from .bashrc or .zshrc or like these) to smooth experience like this:
 
 ```
@@ -25,5 +25,5 @@ alias gp2="git push && /path/to/the/file/pushToGitHub.sh"
 sudo chmod +x /path/to/the/file/pushToGitHub.sh
 ```
 
-- Check Out The File Path
+- Check Out the File Path
   - Check out the file path from [pushToGitHub.sh:4](https://github.com/emretepedev/pushToGitHub/blob/master/pushToGitHub.sh#L4) and (if you need to) customize for yourself. (default path = /home/<your_username>/pushToGitHub)
