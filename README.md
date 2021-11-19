@@ -5,12 +5,12 @@ Prerequisites
 - Execute Permission
 Make executable to execute sh file that one pushToGitHub.sh
 
-sudo chmod +x /path/to/file/pushToGitHub.sh
+`sudo chmod +x /path/to/file/pushToGitHub.sh`
 
 - Set the alias
 Set the alias (from .bashrc or .zshrc or like these) to smooth experience like this:
 
-alias gp2="git push && /path/to/file/pushToGitHub.sh"
+`alias gp2="git push && /path/to/file/pushToGitHub.sh"`
 
 - Connect GitHub via Ssh
 Connect to the GitHub via ssh to smooth experience. If you don't know that, check out now: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
