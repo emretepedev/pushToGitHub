@@ -5,7 +5,7 @@ Basically, when i pushed something to the GitLab (or like that), this script pus
 ---
 # Prerequisites
 
-### Connect the GitHub via Ssh (optional but highly recommended)
+### Connecting to the GitHub via Ssh (optional but highly recommended)
 
 Connect to the GitHub via ssh to the smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
