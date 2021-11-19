@@ -13,7 +13,7 @@ Basically, when i pushed something to the GitLab, this script pushing an unneces
   - Fork this project.
 
 - Clone the Repository
-  - Clone the forked repository to local. (If you are lazy run `cd ~` or `cd $HOME` before git clone command. Because of the default path.
+  - Clone the forked repository to local. (If you are lazy run `cd ~` or `cd $HOME` before git clone command. Because of the default path.)
 
 - The Execute Permission
   - You have to make executable to execute the sh file that one `pushToGitHub.sh`
