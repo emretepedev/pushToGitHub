@@ -7,7 +7,7 @@ cd $repoPath
 filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
 
-if ! [[ $(( oldValue )) =~ "^[0-9]+$" ]]
+if ! [[ $oldValue =~ "^[0-9]+$" ]]
 then
     echo 'ife girdi'
   newValue=0;
