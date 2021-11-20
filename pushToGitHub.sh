@@ -5,6 +5,12 @@ repoPath="$HOME/pushToGitHub/"
 cd $repoPath
 
 filePath="./someChanges.txt"
+
+if ! [[ -f "$filePath" ]]
+then
+    touch $filePath
+fi
+
 oldValue=$( cat ${filePath} )
 
 if [[ -z $oldValue ]]
