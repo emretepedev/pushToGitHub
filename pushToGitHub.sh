@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/bash
 
 firstPWD=$PWD
 repoPath="$HOME/pushToGitHub/"
@@ -7,17 +7,20 @@ cd $repoPath
 filePath="./someChanges.txt"
 oldValue=$( cat ${filePath} )
 
-if ! [[ $oldValue =~ "^[0-9]+$" ]]
+if [[ -z $oldValue ]]
 then
-    echo 'ife girdi'
-  newValue=0;
-else
-    echo 'else girdi'
-  newValue=$(( ${oldValue} + 1 ));
+    echo "Value is empty!"
+    exit 0
 fi
 
-echo $oldValue;
-echo $newValue;
+numberRegex="^[[:digit:]]+$"
+maxValue=$(( (2 ** 16) - 1 ))
+if [[ $oldValue =~ $numberRegex && $oldValue -lt $maxValue ]]
+then
+    newValue=$(( ${oldValue} + 1 ));
+else
+    newValue=0;
+fi
 
 sed -i "s/${oldValue}/${newValue}/g" ${filePath}
 
