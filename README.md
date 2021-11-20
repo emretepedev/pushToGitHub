@@ -39,3 +39,5 @@ Set the alias (in .bashrc or .zshrc etc.) to the smooth experience like this:
 ```
 alias gp2="git push && /path/to/file/pushToGitHub.sh"
 ```
+
+![tutorial](tutorial.gif)
