@@ -1,4 +1,4 @@
-This script will be counter to the fu**** stupid HR who does not check the fu**** out other Git services (like GitLab).
+This script will counter to the fu**** stupid HR who does not check the fu**** out other Git services (like GitLab).
 
 Basically, when i push to something to GitLab (or like that), this script pushing an unnecessary commit with the empty message to GitHub. That's all.
 
