@@ -15,7 +15,7 @@ oldValue=$( cat ${filePath} )
 
 if [[ -z $oldValue ]]
 then
-    sed -i "s/^$/0/" ${filePath}
+    sed -i "s/^$/0" ${filePath}
     git commit --allow-empty-message -am '' && git push
     exit 0
 fi
