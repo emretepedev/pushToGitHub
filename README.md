@@ -14,7 +14,7 @@ Connect to GitHub via ssh to the smooth experience. If you don't know that, chec
 
 ### Fork and Clone the Repository
 
-Fork this repository ans then clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` commands before git clone command. Because of the default [path](README.md#check-out-the-file-path).)
+Fork this repository and then clone the forked repository to local. (If you are lazy, run `cd ~` or `cd $HOME` commands before git clone command. Because of the default [path](README.md#check-out-the-file-path).)
 
 ### The Execute Permission
 
