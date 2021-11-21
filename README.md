@@ -10,7 +10,7 @@ Basically, when i push to something to GitLab (or like that), this script pushin
 Connect to GitHub via ssh to the smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ---
-# Installation
+# Usage & Basic Installation
 
 ### Fork and Clone the Repository
 
