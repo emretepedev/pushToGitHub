@@ -9,6 +9,7 @@ filePath="./someChanges.txt"
 if ! [[ -f "$filePath" ]]
 then
     touch $filePath
+    echo 0 > $filePath
 fi
 
 oldValue=$( cat ${filePath} )
@@ -16,8 +17,7 @@ oldValue=$( cat ${filePath} )
 if [[ -z $oldValue ]]
 then
     echo 0 > $filePath
-    git commit --allow-empty-message -am '' && git push
-    exit 0
+    oldValue=$( cat ${filePath} )
 fi
 
 numberRegex="^[[:digit:]]+$"
