@@ -9,6 +9,7 @@ filePath="./someChanges.txt"
 if ! [ -f $filePath ]
 then
     touch $filePath
+    echo 0 > $filePath
 fi
 
 oldValue=$( cat $filePath )
