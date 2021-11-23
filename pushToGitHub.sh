@@ -6,18 +6,18 @@ cd $repoPath
 
 filePath="./someChanges.txt"
 
-if ! [[ -f "$filePath" ]]
+if ! [ -f $filePath ]
 then
     touch $filePath
 fi
 
-oldValue=$( cat ${filePath} )
+oldValue=$( cat $filePath )
 
-if [[ -z $oldValue ]]
+if [ -z $oldValue ]
 then
     echo 0 > $filePath
     git commit --allow-empty-message -am '' && git push
-    exit 0
+    exit
 fi
 
 numberRegex="^[[:digit:]]+$"
@@ -29,7 +29,7 @@ else
     newValue=0
 fi
 
-sed -i "s/${oldValue}/${newValue}/g" ${filePath}
+sed -i "s/$oldValue/$newValue/g" $filePath
 
 git commit --allow-empty-message -am '' && git push
 
