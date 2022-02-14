@@ -17,7 +17,7 @@ oldValue=$( cat $filePath )
 if [ -z $oldValue ]
 then
     echo 0 > $filePath
-    git commit --allow-empty-message -am '' && git push
+    git push
     exit
 fi
 
@@ -32,6 +32,6 @@ fi
 
 sed -i "s/$oldValue/$newValue/g" $filePath
 
-git commit --allow-empty-message -am '' && git push
+git push
 
 cd $firstPWD
