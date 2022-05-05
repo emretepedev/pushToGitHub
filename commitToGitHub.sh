@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# path of first dir
+# path of the first dir
 firstPath=$PWD
 
 # path of the repository
@@ -35,6 +35,7 @@ else
     newValue=0
 fi
 
+# apply changes
 sed -i "s/$oldValue/$newValue/g" $file
 
 git commit --allow-empty-message -am ''
