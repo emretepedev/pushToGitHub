@@ -1,6 +1,7 @@
 #!/bin/bash
 
-firstPWD=$PWD
+# path of first dir
+firstPath=$PWD
 
 # path of the repository
 repoPath="$HOME/pushToGitHub/"
@@ -12,4 +13,4 @@ cd $repoPath
 git push
 
 # back to the first dir
-cd $firstPWD
+cd $firstPath
