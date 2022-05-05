@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# path of first dir
+# path of the first dir
 firstPath=$PWD
 
 # path of the repository
