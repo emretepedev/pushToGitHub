@@ -2,7 +2,7 @@
 
 firstPWD=$PWD
 
-# path of repo which is one on github
+# path of the repository
 repoPath="$HOME/pushToGitHub/"
 
 # switch dir to push
