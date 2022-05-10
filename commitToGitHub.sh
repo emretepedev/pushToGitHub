@@ -1,22 +1,27 @@
 #!/bin/bash
 
-firstPWD=$PWD
+# path of the first dir
+firstPath=$PWD
+
+# path of the repository
 repoPath="$HOME/pushToGitHub/"
+
+# switch dir to push
 cd $repoPath
 
-filePath="./someChanges.txt"
+file="./someChanges.txt"
 
-if ! [ -f $filePath ]
+if ! [ -f $file ]
 then
-    touch $filePath
-    echo 0 > $filePath
+    touch $file
+    echo 0 > $file
 fi
 
-oldValue=$( cat $filePath )
+oldValue=$( cat $file )
 
 if [ -z $oldValue ]
 then
-    echo 0 > $filePath
+    echo 0 > $file
     git commit --allow-empty-message -am ''
     exit
 fi
@@ -30,8 +35,10 @@ else
     newValue=0
 fi
 
-sed -i "s/$oldValue/$newValue/g" $filePath
+# apply changes
+sed -i "s/$oldValue/$newValue/g" $file
 
 git commit --allow-empty-message -am ''
 
-cd $firstPWD
+# back to the first dir
+cd $firstPath

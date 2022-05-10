@@ -1,6 +1,4 @@
-This script will counter to the fu**** stupid HR who does not check the fu**** out other Git services (like GitLab).
-
-Basically, when i push to something to GitLab (or like that), this script pushing an unnecessary commit with the empty message to GitHub. That's all.
+Basically, when i push to something to GitLab etc., this script pushing an unnecessary commit with the empty message to GitHub. That's all.
 
 ---
 # Prerequisites
@@ -21,19 +19,21 @@ Fork this repository and then clone the forked repository to local. (If you are 
 You have to make executable to execute the sh file that one `pushToGitHub.sh`
 
 ```
-sudo chmod +x /path/to/file/pushToGitHub.sh
+sudo chmod +x /path/to/commitToGitHub.sh
+sudo chmod +x /path/to/pushToGitHub.sh
 ```
 
 ### Check Out the File Path
 
-Check out the file path from [pushToGitHub.sh:4](https://github.com/emretepedev/pushToGitHub/blob/master/pushToGitHub.sh#L4) and (if you need) customize for yourself. (default file path="/home/<your_username>/pushToGitHub/")
+Check out the file path from [pushToGitHub.sh:7](https://github.com/emretepedev/pushToGitHub/blob/master/pushToGitHub.sh#L7) and [commitToGitHub.sh:7](https://github.com/emretepedev/pushToGitHub/blob/master/commitToGitHub.sh#L7) then (if you need to this) customize for yourself. (default file path="/home/<your_username>/pushToGitHub/")
 
 ### Set the Alias (optional)
 
-Set the alias (in .bashrc or .zshrc etc.) to the smooth experience like this:
+Set the alias in .bashrc (or .zshrc etc.) to the smooth experience like this:
 
 ```
-alias gp2="git push && /path/to/file/pushToGitHub.sh"
+alias gc2="/path/to/commitToGitHub.sh && git commit -m"
+alias gp2="/path/to/pushToGitHub.sh && git push"
 ```
 
 ![tutorial](tutorial.gif)
