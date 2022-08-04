@@ -3,6 +3,10 @@ Basically, when i push to something to GitLab etc., this script pushing an unnec
 ---
 # Prerequisites
 
+### Check the OS
+
+If you are using a linux, you have to switch to `master` branch.
+
 ### Connecting to GitHub via Ssh (optional but highly recommended)
 
 Connect to GitHub via ssh to the smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
@@ -33,7 +37,7 @@ Set the alias in .bashrc (or .zshrc etc.) to the smooth experience like this:
 
 ```
 alias gc2="/path/to/commitToGitHub.sh && git commit -m"
-alias gp2="/path/to/pushToGitHub.sh && git push"
+alias gp2="git push && /path/to/pushToGitHub.sh"
 ```
 
 ![tutorial](tutorial.gif)
