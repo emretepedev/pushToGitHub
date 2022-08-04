@@ -36,7 +36,7 @@ else
 fi
 
 # apply changes
-sed -i "s/$oldValue/$newValue/g" $file
+sed -i "" "s/$oldValue/$newValue/g" $file
 
 git commit --allow-empty-message -am ''
 
