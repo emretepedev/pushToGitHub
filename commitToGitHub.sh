@@ -7,7 +7,7 @@ firstPath=$PWD
 repoPath="$HOME/pushToGitHub/"
 
 # switch dir to push
-cd $repoPath
+cd "$repoPath" || (echo "your repository path is not correct" && exit)
 
 file="./someChanges.txt"
 
@@ -19,7 +19,7 @@ fi
 
 oldValue=$( cat $file )
 
-if [ -z $oldValue ]
+if [ -z "$oldValue" ]
 then
     echo 0 > $file
     git commit --allow-empty-message -am ''
@@ -30,7 +30,7 @@ numberRegex="^[[:digit:]]+$"
 maxValue=$(( (2 ** 16) - 1 ))
 if [[ $oldValue =~ $numberRegex && $oldValue -lt $maxValue ]]
 then
-    newValue=$(( ${oldValue} + 1 ))
+    newValue=$(( oldValue + 1 ))
 else
     newValue=0
 fi
@@ -41,4 +41,4 @@ sed -i "" "s/$oldValue/$newValue/g" $file
 git commit --allow-empty-message -am ''
 
 # back to the first dir
-cd $firstPath
+cd "$firstPath" || echo "your first path is not correct"
