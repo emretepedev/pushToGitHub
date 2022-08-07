@@ -18,6 +18,8 @@ then
     echo 0 > "$file"
 fi
 
+echo 0
+
 # get number from file
 oldValue=$( cat "$file" )
 
@@ -30,6 +32,8 @@ then
     oldValue=$( cat "$file" )
 fi
 
+echo 1
+
 numberRegex="^[[:digit:]]+$"
 maxValue=$(( (2 ** 16) - 1 ))
 
@@ -40,10 +44,16 @@ else
     newValue=0
 fi
 
+echo 2
+
 # apply changes
 sed -i "" "s/$oldValue/$newValue/g" "$file"
 
+echo 3
+
 git commit --allow-empty-message -am ''
+
+echo 4
 
 # back to the first dir
 cd "$firstPath" || echo "your first path is not correct"
