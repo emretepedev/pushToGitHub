@@ -37,7 +37,7 @@ echo 1
 numberRegex="^[[:digit:]]+$"
 maxValue=$(( (2 ** 16) - 1 ))
 
-if [[ "$oldValue" =~ $numberRegex && "$oldValue" -lt "$maxValue" ]]
+if [[ $oldValue =~ $numberRegex && $oldValue -lt "$maxValue" ]]
 then
     newValue=$(( oldValue++ ))
 else
