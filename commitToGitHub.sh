@@ -35,7 +35,7 @@ maxValue=$(( (2 ** 16) - 1 ))
 
 if [[ $oldValue =~ $numberRegex && $oldValue -lt $maxValue ]]
 then
-    newValue=$(( oldValue++ ))
+    newValue=$(( oldValue + 1 ))
 else
     newValue=0
 fi
