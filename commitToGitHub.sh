@@ -33,7 +33,8 @@ fi
 numberRegex="^[[:digit:]]+$"
 maxValue=$(( (2 ** 16) - 1 ))
 
-if [[ $oldValue =~ $numberRegex && $oldValue -lt $maxValue ]]
+# increment to number if it is number and lower than max value
+if [[ "$oldValue" =~ $numberRegex && "$oldValue" -lt "$maxValue" ]]
 then
     newValue=$(( oldValue + 1 ))
 else
@@ -43,8 +44,9 @@ fi
 # apply changes
 sed -i "" "s/$oldValue/$newValue/g" "$file"
 
+# take a commit
 git commit --allow-empty-message -am ''
 
-# back to the first dir
+# back to first dir
 cd "$firstPath" || echo "your first path is not correct"
 
