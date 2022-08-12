@@ -3,10 +3,6 @@ Basically, when i push to something to GitLab etc., this script pushing an unnec
 ---
 # Prerequisites
 
-### Check the OS
-
-If you are using a linux, you have to switch to `master` branch.
-
 ### Connecting to GitHub via Ssh (optional but highly recommended)
 
 Connect to GitHub via ssh to the smooth experience. If you don't know that, check out now from the [GitHub Docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
