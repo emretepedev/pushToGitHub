@@ -6,39 +6,52 @@ firstPath=$PWD
 # path of the repository
 repoPath="$HOME/pushToGitHub/"
 
-# switch dir to push
-cd $repoPath
+# switch dir to commit
+cd "$repoPath" || (echo "your repository path is not correct" && exit)
 
 file="./someChanges.txt"
 
-if ! [ -f $file ]
+# check that file is exists
+if ! [ -f "$file" ]
 then
-    touch $file
-    echo 0 > $file
+    touch "$file"
+    echo 0 > "$file"
 fi
 
-oldValue=$( cat $file )
+# get number from file
+oldValue=$( cat "$file" )
 
-if [ -z $oldValue ]
+# check that number is exists
+if [ -z "$oldValue" ]
 then
-    echo 0 > $file
-    git commit --allow-empty-message -am ''
-    exit
+    rm -rf "$file"
+    touch "$file"
+    echo 0 > "$file"
+    oldValue=$( cat "$file" )
 fi
 
 numberRegex="^[[:digit:]]+$"
 maxValue=$(( (2 ** 16) - 1 ))
-if [[ $oldValue =~ $numberRegex && $oldValue -lt $maxValue ]]
+
+# increment to number if it is number and lower than max value
+if [[ "$oldValue" =~ $numberRegex && "$oldValue" -lt "$maxValue" ]]
 then
-    newValue=$(( ${oldValue} + 1 ))
+    newValue=$(( oldValue + 1 ))
 else
     newValue=0
 fi
 
 # apply changes
-sed -i "s/$oldValue/$newValue/g" $file
+if [[ $OSTYPE == 'darwin'* ]]
+then
+    sed -i "" "s/$oldValue/$newValue/g" "$file"
+else
+    sed -i "s/$oldValue/$newValue/g" "$file"
+fi
 
+# take a commit
 git commit --allow-empty-message -am ''
 
-# back to the first dir
-cd $firstPath
+# back to first dir
+cd "$firstPath" || echo "your first path is not correct"
+
