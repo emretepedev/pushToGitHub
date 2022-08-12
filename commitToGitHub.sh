@@ -42,7 +42,12 @@ else
 fi
 
 # apply changes
-sed -i "" "s/$oldValue/$newValue/g" "$file"
+if [[ $OSTYPE == 'darwin'* ]]
+then
+    sed -i "" "s/$oldValue/$newValue/g" "$file"
+else
+    sed -i "s/$oldValue/$newValue/g" "$file"
+fi
 
 # take a commit
 git commit --allow-empty-message -am ''
