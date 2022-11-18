@@ -1,4 +1,4 @@
-Basically, when i push to something to GitLab etc., this script pushing an unnecessary commit with the empty message to GitHub. That's all.
+Basically, when I push something to GitLab etc., this script pushing an unnecessary commit with the empty message to GitHub. That's all.
 
 ---
 # Prerequisites
@@ -16,7 +16,7 @@ Fork this repository and then clone the forked repository to local. (If you are 
 
 ### The Execute Permission
 
-You have to make executable to execute the sh file that one `pushToGitHub.sh`
+You have to make executable the sh file that one `pushToGitHub.sh`
 
 ```
 sudo chmod +x /path/to/commitToGitHub.sh
