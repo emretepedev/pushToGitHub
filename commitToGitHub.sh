@@ -50,7 +50,7 @@ else
 fi
 
 # take a commit
-git commit --allow-empty-message -am ''
+git commit -S --allow-empty-message -am ''
 
 # back to first dir
 cd "$firstPath" || echo "your first path is not correct"
