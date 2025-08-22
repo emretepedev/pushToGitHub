@@ -53,7 +53,19 @@ Follow these steps to set up and use the scripts.
 
 You can use the scripts manually, but for the best experience, we recommend setting up aliases or Git hooks.
 
-### Option 1: Using Aliases
+### Option 1: Using Git Hooks (Recommended)
+
+For complete automation, you can configure the scripts to run as a `post-commit` or `pre-push` Git hook. This will trigger the mirror action automatically after every commit or before every push. You can find ready-to-use examples in the `git-hooks-examples` folder to get started.
+
+To learn more, check out the [official Git Hooks documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
+
+**Note:** Before using the hook scripts from the `git-hooks-examples` directory, you **must** open the hook file (e.g., `post-commit` or `pre-push`) and update the `REPO_DIR` variable inside it to the correct absolute path of your `pushToGitHub` clone.
+
+```bash
+REPO_DIR="$HOME/pushToGitHub"
+```
+
+### Option 2: Using Aliases
 
 Aliases make running the scripts effortless. Add the following lines to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`), then restart your shell or run `source ~/.bashrc`.
 
@@ -64,11 +76,5 @@ alias gcmsg2="/path/to/commitToGitHub.sh && git commit -m"
 # Alias to first push to your primary remote, then push to the GitHub
 alias gp2="git push && /path/to/pushToGitHub.sh"
 ```
-
-### Option 2: Using Git Hooks
-
-For complete automation, you can configure the scripts to run as a `post-commit` or `pre-push` Git hook. This will trigger the mirror action automatically after every commit or before every push. You can find ready-to-use examples in the `git-hooks-examples` folder to get started.
-
-To learn more, check out the [official Git Hooks documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
 ![tutorial](tutorial.gif)
