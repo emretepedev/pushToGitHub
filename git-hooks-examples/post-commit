@@ -1,0 +1,60 @@
+#!/bin/sh
+
+REPO_DIR="$HOME/pushToGitHub"
+COMMIT_SCRIPT_PATH="$REPO_DIR/commitToGitHub.sh"
+SHOW_COMMIT_MESSAGE=true
+
+HOOK=$(basename "$0")
+PROJECT_HOOK=".husky/$HOOK"
+
+run_project_hook_if_exists() {
+  if [ -f "$PROJECT_HOOK" ]; then
+    sh "$PROJECT_HOOK"
+
+    EXIT_CODE=$?
+    if [ $EXIT_CODE -ne 0 ]; then
+      exit $EXIT_CODE
+    fi
+  fi
+}
+
+trap run_project_hook_if_exists EXIT
+
+if [ ! -d "$REPO_DIR" ]; then
+  echo "Warning: Sync repository path is not correct"
+  exit 0
+fi
+
+GIT_REMOTE_ORIGIN_URL=$(git config --get remote.origin.url)
+TARGET_REMOTE_ORIGIN_URL=$(git -C "$REPO_DIR" config --get remote.origin.url)
+if [ "$GIT_REMOTE_ORIGIN_URL" = "$TARGET_REMOTE_ORIGIN_URL" ]; then
+  exit 0
+fi
+
+GIT_USER_EMAIL=$(git config --get user.email)
+TARGET_USER_EMAIL=$(git -C "$REPO_DIR" config --get user.email)
+if [ "$GIT_USER_EMAIL" = "$TARGET_USER_EMAIL" ]; then
+  case "$GIT_REMOTE_ORIGIN_URL" in
+  *github*)
+    exit 0
+    ;;
+  *) ;;
+  esac
+fi
+
+if [ ! -f "$COMMIT_SCRIPT_PATH" ]; then
+  echo "Warning: Commit script path is not correct"
+  exit 0
+fi
+
+trap - EXIT
+
+run_project_hook_if_exists
+
+if [ "$SHOW_COMMIT_MESSAGE" = true ]; then
+  echo "Commiting to sync repository"
+fi
+
+sh "$COMMIT_SCRIPT_PATH"
+
+exit $?

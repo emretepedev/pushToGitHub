@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # path of the first dir
-firstPath=$PWD
+FIRST_DIR=$PWD
 
 # path of the repository
-repoPath="$HOME/pushToGitHub/"
+REPO_DIR="$HOME/pushToGitHub"
 
 # switch dir to push
-cd $repoPath
+cd "$REPO_DIR" || (echo "your repository path is not correct" && exit)
 
 # push
-git push
+git push --no-verify
 
 # back to the first dir
-cd $firstPath
+cd "$FIRST_DIR" || (echo "your first path is not correct" && exit)
