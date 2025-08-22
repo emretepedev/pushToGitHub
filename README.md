@@ -65,6 +65,12 @@ To learn more, check out the [official Git Hooks documentation](https://git-scm.
 REPO_DIR="$HOME/pushToGitHub"
 ```
 
+#### Husky Compatibility
+
+For projects using [Husky](https://typicode.github.io/husky/) for Git hooks management, an additional `init.sh` file is provided in the `git-hooks-examples/husky/` directory. This file enables compatibility with Husky's startup files system, allowing the hooks to run properly in Husky-managed environments.
+
+You need to add this `init.sh` file to your Husky startup files directory. For detailed information about Husky startup files and how to configure them, please refer to the [official Husky documentation](https://typicode.github.io/husky/how-to.html#startup-files).
+
 ### Option 2: Using Aliases
 
 Aliases make running the scripts effortless. Add the following lines to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`), then restart your shell or run `source ~/.bashrc`.
