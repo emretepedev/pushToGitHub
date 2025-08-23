@@ -4,22 +4,6 @@ REPO_DIR="$HOME/pushToGitHub"
 PUSH_SCRIPT_PATH="$REPO_DIR/pushToGitHub.sh"
 SHOW_PUSH_MESSAGE=true
 
-HOOK=$(basename "$0")
-PROJECT_HOOK=".husky/$HOOK"
-
-run_project_hook_if_exists() {
-  if [ -f "$PROJECT_HOOK" ]; then
-    sh "$PROJECT_HOOK"
-
-    EXIT_CODE=$?
-    if [ $EXIT_CODE -ne 0 ]; then
-      exit $EXIT_CODE
-    fi
-  fi
-}
-
-trap run_project_hook_if_exists EXIT
-
 if [ ! -d "$REPO_DIR" ]; then
   echo "Warning: Sync repository path is not correct"
   exit 0
@@ -46,10 +30,6 @@ if [ ! -f "$PUSH_SCRIPT_PATH" ]; then
   echo "Warning: Push script path is not correct"
   exit 0
 fi
-
-trap - EXIT
-
-run_project_hook_if_exists
 
 if [ "$SHOW_PUSH_MESSAGE" = true ]; then
   echo "Pushing to sync repository"
