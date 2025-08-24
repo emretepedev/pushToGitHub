@@ -32,7 +32,6 @@ To allow the scripts and especially **global Git hooks** to locate this reposito
 Add the following line to your shell's configuration file (e.g., `~/.bashrc`, `~/.zshrc`) and reload your shell's configuration for the changes to take effect. **Remember to replace the path** with the actual location where you cloned the repository.
 
 ```bash
-# Sets the location for the Git Activity Mirror scripts
 export ACTIVITY_REPO_DIR="$HOME/git-activity-mirror"
 ```
 
