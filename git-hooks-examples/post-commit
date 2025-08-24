@@ -6,16 +6,14 @@ if [ -z "$ACTIVITY_REPO_DIR" ]; then
 fi
 
 RECORD_ACTIVITY_SCRIPT="$ACTIVITY_REPO_DIR/record-activity.sh"
-
 GIT_REMOTE_ORIGIN_URL=$(git config --get remote.origin.url)
 TARGET_REMOTE_ORIGIN_URL=$(git -C "$ACTIVITY_REPO_DIR" config --get remote.origin.url)
+GIT_USER_EMAIL=$(git config --get user.email)
+TARGET_USER_EMAIL=$(git -C "$ACTIVITY_REPO_DIR" config --get user.email)
 
 if [ "$GIT_REMOTE_ORIGIN_URL" = "$TARGET_REMOTE_ORIGIN_URL" ]; then
   exit 0
 fi
-
-GIT_USER_EMAIL=$(git config --get user.email)
-TARGET_USER_EMAIL=$(git -C "$ACTIVITY_REPO_DIR" config --get user.email)
 
 if [ "$GIT_USER_EMAIL" = "$TARGET_USER_EMAIL" ]; then
   case "$GIT_REMOTE_ORIGIN_URL" in
