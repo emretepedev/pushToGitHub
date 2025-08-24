@@ -1,7 +1,7 @@
 #!/bin/sh
 
 REPO_DIR="$HOME/git-activity-mirror"
-PUSH_SCRIPT_PATH="$REPO_DIR/publish-activity.sh"
+PUBLISH_ACTIVITY_SCRIPT="$REPO_DIR/publish-activity.sh"
 
 if [ ! -d "$REPO_DIR" ]; then
   echo "Warning: Sync repository path is not correct"
@@ -25,11 +25,11 @@ if [ "$GIT_USER_EMAIL" = "$TARGET_USER_EMAIL" ]; then
   esac
 fi
 
-if [ ! -f "$PUSH_SCRIPT_PATH" ]; then
-  echo "Warning: Push script path is not correct"
+if [ ! -f "$PUBLISH_ACTIVITY_SCRIPT" ]; then
+  echo "Warning: Publish activity script path is not correct"
   exit 0
 fi
 
-sh "$PUSH_SCRIPT_PATH"
+sh "$PUBLISH_ACTIVITY_SCRIPT"
 
 exit $?

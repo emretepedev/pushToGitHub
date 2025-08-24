@@ -7,7 +7,7 @@ SHOW_INFO_MESSAGE=false
 FIRST_DIR=$PWD
 
 # path of the repository
-REPO_DIR="$HOME/publish-activity.sh"
+REPO_DIR="$HOME/git-activity-mirror"
 
 # switch dir to push
 cd "$REPO_DIR" || (echo "your repository path is not correct" && exit)

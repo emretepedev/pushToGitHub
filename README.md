@@ -1,4 +1,4 @@
-# Push to GitHub
+# Git Activity Mirror
 
 A set of simple Bash scripts to automatically mirror commits and pushes from a primary repository (e.g., GitLab, Bitbucket) to a secondary repository (e.g., GitHub).
 
