@@ -2,8 +2,6 @@
 
 A set of simple Bash scripts to automatically mirror commits and pushes from a primary repository (e.g., GitLab, Bitbucket) to a secondary repository (e.g., GitHub).
 
-## About The Project
-
 These scripts are for developers who work with multiple Git hosting services but want to maintain a public mirror of their work. This is a common scenario when your primary work is on a private or company-hosted GitLab/Bitbucket instance, but you still want to showcase your activity on your public profile.
 
 The scripts work by creating an empty commit and pushing it to the target repository, effectively mirroring your activity.
@@ -84,6 +82,8 @@ alias gcmsg2="/path/to/record-activity.sh && git commit -m"
 # Alias to first push to your primary remote, then push to the secondary remote
 alias gp2="git push && /path/to/publish-activity.sh"
 ```
+
+---
 
 ## Miscellaneous
 
