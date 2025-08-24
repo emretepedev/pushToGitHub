@@ -4,13 +4,12 @@
 SHOW_HOOK_FOUND_MESSAGE=false
 
 HOOK=$(basename "$0")
-PROJECT_HOOKS_DIR_RAW=$(git config --get core.hooksPath)
-GLOBAL_HOOKS_DIR=$(git config --global --get core.hooksPath)
-GLOBAL_HOOK="${GLOBAL_HOOKS_DIR%/}/${HOOK}"
-PROJECT_HOOKS_DIR="${PROJECT_HOOKS_DIR_RAW%/_}"
-PROJECT_HOOK="${PROJECT_HOOKS_DIR%/}/${HOOK}"
 
 run_project_hook_if_exists() {
+  PROJECT_HOOKS_DIR=$(git config --get core.hooksPath)
+  PROJECT_HOOKS_DIR="${PROJECT_HOOKS_DIR%/_}"
+  PROJECT_HOOK="${PROJECT_HOOKS_DIR%/}/${HOOK}"
+
   if [ -f "$PROJECT_HOOK" ]; then
     if [ "$SHOW_HOOK_FOUND_MESSAGE" = true ]; then
       echo "Project hook found for $HOOK"
@@ -26,6 +25,9 @@ run_project_hook_if_exists() {
 }
 
 run_global_hook_if_exists() {
+  GLOBAL_HOOKS_DIR=$(git config --global --get core.hooksPath)
+  GLOBAL_HOOK="${GLOBAL_HOOKS_DIR%/}/${HOOK}"
+
   if [ -n "$GLOBAL_HOOKS_DIR" ] && [ -f "$GLOBAL_HOOK" ]; then
     if [ "$SHOW_HOOK_FOUND_MESSAGE" = true ]; then
       echo "Global hook found for $HOOK"
