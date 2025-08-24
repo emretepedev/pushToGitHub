@@ -1,18 +1,16 @@
 #!/bin/bash
 
-# show info message (default is false)
-SHOW_INFO_MESSAGE=false
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+
+source "$SCRIPT_DIR/config.sh"
 
 # path of the first dir
 FIRST_DIR=$PWD
 
-# path of the repository
-REPO_DIR="$HOME/git-activity-mirror"
-
 # switch dir to push
-cd "$REPO_DIR" || (echo "your repository path is not correct" && exit)
+cd "$SCRIPT_DIR" || (echo "your repository path is not correct" && exit)
 
-if [ "$SHOW_INFO_MESSAGE" = true ]; then
+if [ "$SHOW_INFO_MESSAGES" = true ]; then
   echo "Pushing to sync repository"
 fi
 

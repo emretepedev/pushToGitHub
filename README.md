@@ -25,19 +25,27 @@ Follow these steps to set up and use the scripts.
 
     First, fork this repository, then clone your forked repository to your local machine. It's convenient to clone it into your home directory.
 
-2.  **Configure the Script's Repository Path**
+2.  **Set the Environment Variable**
 
-    This is the most crucial step. The scripts need to know where **their own repository** is located on your machine. They operate on this repository to create the empty commits that generate activity on your profile.
+To allow the scripts and especially **global Git hooks** to locate this repository, you must set an environment variable.
 
-    Open both `record-activity.sh` and `publish-activity.sh` with a text editor. Change the `REPO_DIR` variable to the **absolute path** where you cloned the project.
+Add the following line to your shell's configuration file (e.g., `~/.bashrc`, `~/.zshrc`) and reload your shell's configuration for the changes to take effect. **Remember to replace the path** with the actual location where you cloned the repository.
 
-    ```bash
-    # Example path inside both record-activity.sh and publish-activity.sh
-    # This should point to the location of THIS project, not your other projects.
-    REPO_DIR="$HOME/git-activity-mirror"
-    ```
+```bash
+# Sets the location for the Git Activity Mirror scripts
+export ACTIVITY_REPO_DIR="$HOME/git-activity-mirror"
+```
 
-3.  **Make Scripts Executable**
+3.  **Configuration**
+
+You can configure the scripts by editing the `config.sh` file.
+
+```bash
+# show info messages (default is false)
+SHOW_INFO_MESSAGES=false
+```
+
+4.  **Make Scripts Executable**
 
     Grant execution permissions to the scripts so they can be run from the command line.
 
@@ -58,11 +66,7 @@ For complete automation, you can configure the scripts to run as a `post-commit`
 
 To learn more, check out the [official Git Hooks documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
-**Note:** Before using the hook scripts from the `git-hooks-examples` directory, you **must** open the hook file (e.g., `post-commit` or `pre-push`) and update the `REPO_DIR` variable inside it to the correct absolute path.
-
-```bash
-REPO_DIR="$HOME/git-activity-mirror"
-```
+**Note:** Before using the hook scripts from the `git-hooks-examples` directory, you **must** set the `ACTIVITY_REPO_DIR` environment variable as described in the [Installation](#installation) section.
 
 #### Husky Compatibility
 

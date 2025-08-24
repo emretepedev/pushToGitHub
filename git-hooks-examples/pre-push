@@ -1,21 +1,21 @@
 #!/bin/sh
 
-REPO_DIR="$HOME/git-activity-mirror"
-PUBLISH_ACTIVITY_SCRIPT="$REPO_DIR/publish-activity.sh"
-
-if [ ! -d "$REPO_DIR" ]; then
-  echo "Warning: Sync repository path is not correct"
+if [ -z "$ACTIVITY_REPO_DIR" ]; then
+  echo "Warning: ACTIVITY_REPO_DIR environment variable is not set. Skipping activity sync."
   exit 0
 fi
 
+PUBLISH_ACTIVITY_SCRIPT="$ACTIVITY_REPO_DIR/publish-activity.sh"
 GIT_REMOTE_ORIGIN_URL=$(git config --get remote.origin.url)
-TARGET_REMOTE_ORIGIN_URL=$(git -C "$REPO_DIR" config --get remote.origin.url)
+TARGET_REMOTE_ORIGIN_URL=$(git -C "$ACTIVITY_REPO_DIR" config --get remote.origin.url)
+
 if [ "$GIT_REMOTE_ORIGIN_URL" = "$TARGET_REMOTE_ORIGIN_URL" ]; then
   exit 0
 fi
 
 GIT_USER_EMAIL=$(git config --get user.email)
-TARGET_USER_EMAIL=$(git -C "$REPO_DIR" config --get user.email)
+TARGET_USER_EMAIL=$(git -C "$ACTIVITY_REPO_DIR" config --get user.email)
+
 if [ "$GIT_USER_EMAIL" = "$TARGET_USER_EMAIL" ]; then
   case "$GIT_REMOTE_ORIGIN_URL" in
   *github*)
