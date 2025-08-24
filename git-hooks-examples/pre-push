@@ -1,8 +1,7 @@
 #!/bin/sh
 
-REPO_DIR="$HOME/pushToGitHub"
-PUSH_SCRIPT_PATH="$REPO_DIR/pushToGitHub.sh"
-SHOW_PUSH_MESSAGE=true
+REPO_DIR="$HOME/git-activity-mirror"
+PUSH_SCRIPT_PATH="$REPO_DIR/publish-activity.sh"
 
 if [ ! -d "$REPO_DIR" ]; then
   echo "Warning: Sync repository path is not correct"
@@ -29,10 +28,6 @@ fi
 if [ ! -f "$PUSH_SCRIPT_PATH" ]; then
   echo "Warning: Push script path is not correct"
   exit 0
-fi
-
-if [ "$SHOW_PUSH_MESSAGE" = true ]; then
-  echo "Pushing to sync repository"
 fi
 
 sh "$PUSH_SCRIPT_PATH"

@@ -1,8 +1,7 @@
 #!/bin/sh
 
-REPO_DIR="$HOME/pushToGitHub"
-COMMIT_SCRIPT_PATH="$REPO_DIR/commitToGitHub.sh"
-SHOW_COMMIT_MESSAGE=true
+REPO_DIR="$HOME/git-activity-mirror"
+COMMIT_SCRIPT_PATH="$REPO_DIR/record-activity.sh"
 
 if [ ! -d "$REPO_DIR" ]; then
   echo "Warning: Sync repository path is not correct"
@@ -29,10 +28,6 @@ fi
 if [ ! -f "$COMMIT_SCRIPT_PATH" ]; then
   echo "Warning: Commit script path is not correct"
   exit 0
-fi
-
-if [ "$SHOW_COMMIT_MESSAGE" = true ]; then
-  echo "Commiting to sync repository"
 fi
 
 sh "$COMMIT_SCRIPT_PATH"

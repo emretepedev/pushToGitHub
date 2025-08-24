@@ -1,10 +1,13 @@
 #!/bin/bash
 
+# show info message (default is false)
+SHOW_INFO_MESSAGE=false
+
 # path of the first dir
 FIRST_DIR=$PWD
 
 # path of the repository
-REPO_DIR="$HOME/pushToGitHub"
+REPO_DIR="$HOME/git-activity-mirror"
 
 cleanup() {
   # restore original hooks path if it exists
@@ -26,6 +29,10 @@ git config --global --unset-all core.hooksPath
 # get user name and email
 GIT_USER_NAME=$(git config --get user.name)
 GIT_USER_EMAIL=$(git config --get user.email)
+
+if [ "$SHOW_INFO_MESSAGE" = true ]; then
+  echo "Commiting to sync repository"
+fi
 
 # take a commit
 git commit -S --allow-empty --allow-empty-message --file /dev/null --author="$GIT_USER_NAME <$GIT_USER_EMAIL>"

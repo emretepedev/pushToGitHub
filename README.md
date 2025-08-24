@@ -1,12 +1,12 @@
 # Push to GitHub
 
-A set of simple Bash scripts to automatically mirror commits and pushes from a primary repository (e.g., GitLab, Bitbucket) to a secondary GitHub repository.
+A set of simple Bash scripts to automatically mirror commits and pushes from a primary repository (e.g., GitLab, Bitbucket) to a secondary repository (e.g., GitHub).
 
 ## About The Project
 
-These scripts are for developers who work with multiple Git hosting services but want to maintain a public mirror of their work on GitHub. This is a common scenario when your primary work is on a private or company-hosted GitLab/Bitbucket instance, but you still want to showcase your activity on your GitHub profile.
+These scripts are for developers who work with multiple Git hosting services but want to maintain a public mirror of their work. This is a common scenario when your primary work is on a private or company-hosted GitLab/Bitbucket instance, but you still want to showcase your activity on your public profile.
 
-The scripts work by creating an empty commit and pushing it to the target GitHub repository, effectively mirroring your activity.
+The scripts work by creating an empty commit and pushing it to the target repository, effectively mirroring your activity.
 
 ---
 
@@ -18,24 +18,23 @@ Follow these steps to set up and use the scripts.
 
 - **Git** must be installed on your system.
 - **A Bash-compatible shell** (like Bash or Zsh).
-- **SSH access to GitHub (optional)** is highly recommended for seamless, password-less authentication. If you haven't set it up, follow the official [GitHub SSH documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ### Installation
 
 1.  **Fork & Clone**
 
-    First, fork this repository to your own GitHub account, then clone your forked repository to your local machine. It's convenient to clone it into your home directory.
+    First, fork this repository, then clone your forked repository to your local machine. It's convenient to clone it into your home directory.
 
 2.  **Configure the Script's Repository Path**
 
-    This is the most crucial step. The scripts need to know where **their own repository** (`pushToGitHub`) is located on your machine. They operate on this repository to create the empty commits that generate activity on your GitHub profile.
+    This is the most crucial step. The scripts need to know where **their own repository** is located on your machine. They operate on this repository to create the empty commits that generate activity on your profile.
 
-    Open both `commitToGitHub.sh` and `pushToGitHub.sh` with a text editor. Change the `REPO_DIR` variable (around line 7) to the **absolute path** where you cloned the `pushToGitHub` project.
+    Open both `record-activity.sh` and `publish-activity.sh` with a text editor. Change the `REPO_DIR` variable to the **absolute path** where you cloned the project.
 
     ```bash
-    # Example path inside both commitToGitHub.sh and pushToGitHub.sh
+    # Example path inside both record-activity.sh and publish-activity.sh
     # This should point to the location of THIS project, not your other projects.
-    REPO_DIR="$HOME/pushToGitHub"
+    REPO_DIR="$HOME/git-activity-mirror"
     ```
 
 3.  **Make Scripts Executable**
@@ -43,8 +42,8 @@ Follow these steps to set up and use the scripts.
     Grant execution permissions to the scripts so they can be run from the command line.
 
     ```bash
-    chmod +x /path/to/commitToGitHub.sh
-    chmod +x /path/to/pushToGitHub.sh
+    chmod +x /path/to/record-activity.sh
+    chmod +x /path/to/publish-activity.sh
     ```
 
 ---
@@ -59,10 +58,10 @@ For complete automation, you can configure the scripts to run as a `post-commit`
 
 To learn more, check out the [official Git Hooks documentation](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
-**Note:** Before using the hook scripts from the `git-hooks-examples` directory, you **must** open the hook file (e.g., `post-commit` or `pre-push`) and update the `REPO_DIR` variable inside it to the correct absolute path of your `pushToGitHub` clone.
+**Note:** Before using the hook scripts from the `git-hooks-examples` directory, you **must** open the hook file (e.g., `post-commit` or `pre-push`) and update the `REPO_DIR` variable inside it to the correct absolute path.
 
 ```bash
-REPO_DIR="$HOME/pushToGitHub"
+REPO_DIR="$HOME/git-activity-mirror"
 ```
 
 #### Husky Compatibility
@@ -77,10 +76,10 @@ Aliases make running the scripts effortless. Add the following lines to your she
 
 ```bash
 # Alias to first create the mirror commit, then your regular commit
-alias gcmsg2="/path/to/commitToGitHub.sh && git commit -m"
+alias gcmsg2="/path/to/record-activity.sh && git commit -m"
 
-# Alias to first push to your primary remote, then push to the GitHub
-alias gp2="git push && /path/to/pushToGitHub.sh"
+# Alias to first push to your primary remote, then push to the secondary remote
+alias gp2="git push && /path/to/publish-activity.sh"
 ```
 
 ![tutorial](tutorial.gif)
