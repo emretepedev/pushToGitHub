@@ -21,25 +21,27 @@ Follow these steps to set up and use the scripts.
 
 1.  **Fork & Clone**
 
-    First, fork this repository, then clone your forked repository to your local machine. It's convenient to clone it into your home directory.
+    First, fork this repository, then clone your forked repository to your local machine.
 
-2.  **Set the Environment Variable**
-
-    To allow the scripts and especially **global Git hooks** to locate this repository, you must set an environment variable.
-
-    Add the following line to your shell's configuration file (e.g., `~/.bashrc`, `~/.zshrc`) and reload your shell's configuration for the changes to take effect. **Remember to replace the path** with the actual location where you cloned the repository.
-
-    ```bash
-    export ACTIVITY_REPO_DIR="$HOME/git-activity-mirror"
-    ```
-
-3.  **Make Scripts Executable**
+2.  **Make Scripts Executable**
 
     Grant execution permissions to the scripts so they can be run from the command line.
 
     ```bash
     chmod +x /path/to/record-activity.sh
     chmod +x /path/to/publish-activity.sh
+    ```
+
+3.  **Set the Environment Variable**
+
+    > **Note:** This step is only required if you are using the [Git Hooks](#option-1-using-git-hooks-recommended) option.
+
+    To allow **global Git hooks** to locate this repository, you must set an environment variable.
+
+    Add the following line to your shell's configuration file (e.g., `~/.bashrc`, `~/.zshrc`) and reload your shell's configuration for the changes to take effect. **Remember to replace the path** with the actual location where you cloned the repository.
+
+    ```bash
+    export ACTIVITY_REPO_DIR="$HOME/git-activity-mirror"
     ```
 
 4.  **Configuration** (optional)
