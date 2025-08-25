@@ -1,9 +1,10 @@
 #!/bin/bash
 
 ACTIVITY_REPO_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
-ORIGINAL_HOOKS_PATH=$(git config --global --get core.hooksPath)
 
 source "$ACTIVITY_REPO_DIR/config.sh"
+
+ORIGINAL_HOOKS_PATH=$(git config --global --get core.hooksPath)
 
 cleanup() {
   # restore original hooks path if it exists
